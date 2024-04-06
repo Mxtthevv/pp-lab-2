@@ -11,8 +11,15 @@ public class zad1 {
         int[] oceny = new int[iloscOcen];   // tworzenie talbicy o podanym rozmiarze
 
         for (int i = 0; i < iloscOcen; i++) {   // petla na pobieranie ocen i zapisywanie do tablicy
-            System.out.println("Podaj ocenę numer " + (i + 1) + ":");
-            oceny[i] = scan.nextInt();
+            int ocena;
+            do {
+                System.out.println("Podaj ocenę numer " + (i + 1) + ":");
+                ocena = scan.nextInt();
+                if (ocena <= 0 || ocena > 6) {
+                    System.out.println("Wprowadzona przez Ciebie liczba jest nieprawidłowa, prawidłowy zakres to 1-6");
+                }
+            } while (ocena <= 0 || ocena > 6);
+            oceny[i] = ocena;
         }
 
         System.out.println("Twoje oceny to:");   // wyswietlanie ocen z tablicy
